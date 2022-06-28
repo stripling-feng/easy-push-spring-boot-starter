@@ -5,9 +5,9 @@ import lombok.Data;
 import java.util.HashMap;
 
 /**
- * @Author feng
- * @Date 2022/6/24 10:57
- * @Description TODO
+ * @author feng
+ *  2022/6/24 10:57
+ *  TODO
  */
 @Data
 public class AliSendSmsRequest {

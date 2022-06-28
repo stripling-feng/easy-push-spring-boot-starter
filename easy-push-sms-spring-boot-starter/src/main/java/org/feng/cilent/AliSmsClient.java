@@ -13,9 +13,9 @@ import org.feng.support.AliSmsBuild;
 import java.util.Objects;
 
 /**
- * @Author feng
- * @Date 2022/6/24 10:52
- * @Description 阿里短信客户端
+ * @author feng
+ *  2022/6/24 10:52
+ *  阿里短信客户端
  */
 @Slf4j
 public class AliSmsClient {

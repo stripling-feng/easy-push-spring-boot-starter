@@ -9,9 +9,9 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author feng
- * @Date 2022/6/27 16:11
- * @Description ali 异步发送
+ * @author feng
+ *  2022/6/27 16:11
+ *  ali 异步发送
  */
 @Component
 @Slf4j

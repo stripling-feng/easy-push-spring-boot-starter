@@ -5,36 +5,36 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author feng
- * @Date 2022/6/24 9:28
- * @Description Mail配置字段
+ * @author feng
+ *  2022/6/24 9:28
+ *  Mail配置字段
  */
 @Data
 @ConfigurationProperties(prefix = "easy-push.mail")
 @Component
 public class MailProperties {
     /**
-     * 是否开启
+     * enable
      */
     private Boolean enable;
     /**
-     * 服务端口
+     * host
      */
     private String host;
     /**
-     * 登录账号
+     * username
      */
     private String username;
     /**
-     * 授权码
+     * password
      */
     private String password;
     /**
-     * 端口
+     * port
      */
     private String port;
     /**
-     * 是否开启debug
+     * debug
      */
     private Boolean debug;
     /**
@@ -42,7 +42,7 @@ public class MailProperties {
      */
     private Boolean ssl;
     /**
-     * ssl类
+     * sslFactoryClass
      */
     private String sslFactoryClass;
 }

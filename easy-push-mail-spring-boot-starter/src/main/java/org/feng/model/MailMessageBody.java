@@ -3,35 +3,35 @@ package org.feng.model;
 import lombok.Data;
 
 /**
- * @Author feng
- * @Date 2022/6/23 10:54
- * @Description 消息体
+ * @author feng
+ *  2022/6/23 10:54
+ *  MailMessageBody
  */
 @Data
 public class MailMessageBody {
     /**
-     * 发送目标
-     * 多个目标使用逗号隔开
+     * send target
+     * Multiple targets are separated by commas
      */
     private String to;
     /**
-     * 发送地址
+     * Send the address
      */
     private String from;
     /**
-     * 标题
+     * title
      */
     private String title;
     /**
-     * 内容
+     * content
      */
     private String content;
     /**
-     * 抄送人
+     * cc
      */
     private String cc;
     /**
-     * 密送人
+     * bcc
      */
     private String bcc;
 }

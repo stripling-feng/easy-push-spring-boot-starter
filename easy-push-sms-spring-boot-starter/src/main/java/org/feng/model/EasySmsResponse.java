@@ -3,9 +3,9 @@ package org.feng.model;
 import lombok.Data;
 
 /**
- * @Author feng
- * @Date 2022/6/24 11:08
- * @Description TODO
+ * @author feng
+ *  2022/6/24 11:08
+ *  TODO
  */
 @Data
 public class EasySmsResponse<T> {

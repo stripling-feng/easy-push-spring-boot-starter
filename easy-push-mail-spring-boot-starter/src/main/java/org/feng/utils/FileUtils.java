@@ -6,16 +6,17 @@ import java.io.*;
 import java.util.Objects;
 
 /**
- * @Author feng
- * @Date 2022/6/23 11:49
- * @Description TODO
+ * @author feng
+ *  2022/6/23 11:49
+ *  TODO
  */
 public class FileUtils {
+
     /**
-     * MultipartFile 转 File
-     *
-     * @param multipartFile
-     * @throws Exception
+     *  MultipartFile to File
+     * @param multipartFile multipartFile
+     * @return file
+     * @throws IOException IOException
      */
     public static File multipartFileToFile(MultipartFile multipartFile) throws IOException {
 

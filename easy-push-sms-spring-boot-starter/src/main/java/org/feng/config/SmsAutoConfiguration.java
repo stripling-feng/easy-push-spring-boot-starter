@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author feng
- * @Date 2022/6/24 10:53
- * @Description TODO
+ * @author feng
+ *  2022/6/24 10:53
+ *  TODO
  */
 @EnableConfigurationProperties
 @Configuration

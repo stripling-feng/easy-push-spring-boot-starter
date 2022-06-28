@@ -18,15 +18,22 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @Author feng
- * @Date 2022/6/23 10:33
- * @Description 构建Session会话
+ * @author feng
+ * 2022/6/23 10:33
+ * 构建Session会话
  */
 @Slf4j
 public class EmailBuild {
 
     private static final Map<String, Session> MAP = new ConcurrentHashMap<>();
 
+    /**
+     * init build
+     *
+     * @param emailProperties mail properties
+     * @throws MessagingException MessagingException
+     * @throws IOException        IOException
+     */
     public static void build(MailProperties emailProperties) throws MessagingException, IOException {
         if (emailProperties.getEnable()) {
             buildSession(emailProperties);
@@ -36,13 +43,12 @@ public class EmailBuild {
 
 
     /**
-     * 构建消息体
+     * buildMessageProperties
      *
-     * @param messageBody
-     * @param msg
-     * @return
-     * @throws MessagingException
-     * @throws IOException
+     * @param messageBody messageBody
+     * @param msg         msg
+     * @throws MessagingException MessagingException
+     * @throws IOException        IOException
      */
     private static void buildMessageProperties(MimeMessage msg, MailMessageBody messageBody) throws MessagingException, IOException {
         msg.setFrom(new InternetAddress(messageBody.getFrom()));
@@ -58,13 +64,13 @@ public class EmailBuild {
     }
 
     /**
-     * 构建附件
+     * buildMessage
      *
-     * @param messageBody
-     * @param files
-     * @return
-     * @throws MessagingException
-     * @throws IOException
+     * @param messageBody messageBody
+     * @param files       net files
+     * @return MimeMessage
+     * @throws MessagingException MessagingException
+     * @throws IOException        IOException
      */
     public static MimeMessage buildMessage(MailMessageBody messageBody, MultipartFile[] files) throws MessagingException, IOException {
         MimeMessage msg = new MimeMessage(MAP.get("session"));
@@ -84,6 +90,15 @@ public class EmailBuild {
         return msg;
     }
 
+    /**
+     * buildMessage
+     *
+     * @param messageBody messageBody
+     * @param files       files
+     * @return MimeMessage
+     * @throws MessagingException MessagingException
+     * @throws IOException        IOException
+     */
     public static MimeMessage buildMessage(MailMessageBody messageBody, File[] files) throws MessagingException, IOException {
         MimeMessage msg = new MimeMessage(MAP.get("session"));
         MimeBodyPart body = new MimeBodyPart();
@@ -103,6 +118,11 @@ public class EmailBuild {
 
     }
 
+    /**
+     * build mail session
+     *
+     * @param emailProperties emailProperties
+     */
     private static void buildSession(MailProperties emailProperties) {
         Session session = Session.getInstance(buildProperties(emailProperties), new Authenticator() {
             @Override
@@ -118,10 +138,10 @@ public class EmailBuild {
     }
 
     /**
-     * 构建会话请求体
+     * buildProperties
      *
-     * @param emailProperties
-     * @return
+     * @param emailProperties emailProperties
+     * @return mail配置
      */
     private static Properties buildProperties(MailProperties emailProperties) {
         Properties props = new Properties();
@@ -139,11 +159,11 @@ public class EmailBuild {
     }
 
     /**
-     * 以逗号分割 获取地址
+     * Get addresses separated by commas
      *
-     * @param address
-     * @return
-     * @throws AddressException
+     * @param address address
+     * @return Get addresses separated by commas
+     * @throws AddressException AddressException
      */
     private static InternetAddress[] getAddress(String address) throws AddressException {
         String[] addressArray = address.split(",");

@@ -12,9 +12,9 @@ import javax.mail.MessagingException;
 import java.io.IOException;
 
 /**
- * @Author feng
- * @Date 2022/6/23 9:55
- * @Description Mail自动配置器
+ * @author feng
+ *  2022/6/23 9:55
+ *  MailAutoConfiguration
  */
 @EnableConfigurationProperties
 @Configuration

@@ -5,9 +5,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author feng
- * @Date 2022/6/24 10:21
- * @Description TODO
+ * @author feng
+ *  2022/6/24 10:21
+ *  TODO
  */
 @ConfigurationProperties(prefix = "easy-push.sms")
 @Data

@@ -6,9 +6,9 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author feng
- * @Date 2022/6/24 10:04
- * @Description TODO
+ * @author feng
+ *  2022/6/24 10:04
+ *  TODO
  */
 public enum SmsAsync {
     /**

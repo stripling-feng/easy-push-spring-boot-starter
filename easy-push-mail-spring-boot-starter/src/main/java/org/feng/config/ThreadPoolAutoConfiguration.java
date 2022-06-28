@@ -8,9 +8,9 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * @Author feng
- * @Date 2022/6/28 10:06
- * @Description TODO
+ * @author feng
+ *  2022/6/28 10:06
+ *  TODO
  */
 @Component
 public class ThreadPoolAutoConfiguration {

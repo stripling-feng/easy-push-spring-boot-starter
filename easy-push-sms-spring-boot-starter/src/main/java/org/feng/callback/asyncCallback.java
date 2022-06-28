@@ -1,9 +1,9 @@
 package org.feng.callback;
 
 /**
- * @Author feng
- * @Date 2022/6/27 17:03
- * @Description async回调
+ * @author feng
+ *  2022/6/27 17:03
+ *  async回调
  */
 public interface asyncCallback {
     /**

@@ -12,9 +12,9 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @Author feng
- * @Date 2022/6/23 11:28
- * @Description Mail请求cilnet
+ * @author feng
+ *  2022/6/23 11:28
+ *  Mailcilnet
  */
 public class MailClient {
 
