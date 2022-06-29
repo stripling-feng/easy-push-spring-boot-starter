@@ -3,11 +3,11 @@
 
 ## 服务详情
 
-| 服务     | 分类   | client       |
-| -------- | ------ | ------------ |
-| 邮件服务 |        | MailClient   |
-| 短信服务 | 阿里云 | AliSmsClient |
-|          | 腾讯云 | xxxxxxxxx    |
+| 服务     | 分类   | client           |
+| -------- | ------ | ---------------- |
+| 邮件服务 |        | MailClient       |
+| 短信服务 | 阿里云 | AliSmsClient     |
+|          | 腾讯云 | TencentSmsClient |
 
 
 
@@ -34,4 +34,38 @@ easy-push:
 
 ## 使用
 
-注入[服务详情]()中的client ，使用api即可
+注入[服务详情]()中的client ，使用API即可
+
+**注：** **使用aysncXXXX API 需开启springAsync注解   例：@EnableAsync**
+
+###  SMS使用异步发送
+
+实现 AsyncCallback 接口并添加至spring容器中，可以实现异步发送成功之后的回调
+
+例：
+
+```java
+public interface AsyncCallback {
+    /**
+     * async 回调 需要实现这个接口 进行实现
+     *
+     * @param body 返回实体
+     */
+    public void callback(Object body, SmsType smsType);
+}
+
+```
+
+```java
+@Component
+public class AsyncCallback implements org.feng.callback.AsyncCallback {
+
+    @Override
+    public void callback(Object body, SmsType smsType) {
+        System.out.println("实现回调");
+        System.out.println(JSON.toJSONString(body));
+        System.out.println(smsType);
+    }
+}
+```
+
