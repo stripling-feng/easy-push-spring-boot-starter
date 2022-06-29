@@ -37,7 +37,6 @@ public class EmailBuild {
     public static void build(MailProperties emailProperties) throws MessagingException, IOException {
         if (emailProperties.getEnable()) {
             buildSession(emailProperties);
-            log.info("--------------------初始化EmailClient成功----------------------------");
         }
     }
 
