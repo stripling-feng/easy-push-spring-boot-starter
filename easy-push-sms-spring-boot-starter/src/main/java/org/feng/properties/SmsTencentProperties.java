@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author feng
- *  2022/6/24 10:21
+ * 2022/6/24 10:37
  *  TODO
  */
-@ConfigurationProperties(prefix = "easy-push.sms")
+@ConfigurationProperties(prefix = "easy-push.sms.tencent")
 @Data
 @Component
-public class SmsProperties {
-    private SmsAliProperties ali;
-    private SmsTencentProperties tencent;
+public class SmsTencentProperties {
+    private String secretId;
+    private String secretKey;
 }

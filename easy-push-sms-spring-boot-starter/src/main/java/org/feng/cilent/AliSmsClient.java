@@ -21,9 +21,9 @@ import java.util.Objects;
 public class AliSmsClient {
 
     private final SmsProperties smsProperties;
-    private final AliAsyncClient asyncClient;
+    private final AsyncClient asyncClient;
 
-    public AliSmsClient(SmsProperties smsProperties, AliAsyncClient asyncClient) {
+    public AliSmsClient(SmsProperties smsProperties, AsyncClient asyncClient) {
         this.smsProperties = smsProperties;
         this.asyncClient = asyncClient;
     }
@@ -47,7 +47,7 @@ public class AliSmsClient {
      * @throws Exception
      */
     public void asyncSendSms(AliSendSmsRequest aliSendSmsRequest) throws Exception {
-        asyncClient.asyncSendSms(Objects.requireNonNull(AliSmsBuild.buildAliClient(smsProperties)), buildSendSmsRequest(aliSendSmsRequest));
+        asyncClient.aliAsyncSendSms(Objects.requireNonNull(AliSmsBuild.buildAliClient(smsProperties)), buildSendSmsRequest(aliSendSmsRequest));
     }
 
     private SendSmsRequest buildSendSmsRequest(AliSendSmsRequest aliSendSmsRequest) {

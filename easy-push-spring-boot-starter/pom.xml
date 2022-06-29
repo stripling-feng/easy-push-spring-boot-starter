@@ -6,7 +6,7 @@
 
     <groupId>io.github.stripling-feng</groupId>
     <artifactId>easy-push-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>easy-push-spring-boot-starter</name>
     <description>push</description>
 
