@@ -1,6 +1,8 @@
 # easy-push-spring-boot-starter
 基于springboot starter 集成的一个 推送工具，目前支持，email 推送 ，阿里云短信
 
+## 服务详情
+
 | 服务     | 分类   | client       |
 | -------- | ------ | ------------ |
 | 邮件服务 |        | MailClient   |
@@ -28,3 +30,8 @@ easy-push:
       access-key-secret: xxxxx
 ```
 
+
+
+## 使用
+
+注入[服务详情]()中的client ，使用api即可
