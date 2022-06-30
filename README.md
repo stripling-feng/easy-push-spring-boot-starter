@@ -34,7 +34,39 @@ easy-push:
 
 ## 使用
 
-注入[服务详情]()中的client ，使用API即可
+**使用聚合包**
+
+```xml
+<dependency>
+    <groupId>io.github.stripling-feng</groupId>
+    <artifactId>easy-push-spring-boot-starter</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+**或者根据需要选择**
+
+**邮件：**
+
+```xml
+<dependency>
+    <groupId>io.github.stripling-feng</groupId>
+    <artifactId>easy-push-mail-spring-boot-starter</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+**短信：**
+
+```xml
+<dependency>
+    <groupId>io.github.stripling-feng</groupId>
+    <artifactId>easy-push-sms-spring-boot-starter</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+注入[服务详情](#service)中的client ，使用API即可
 
 **注：** **使用aysncXXXX API 需开启springAsync注解   例：@EnableAsync**
 
