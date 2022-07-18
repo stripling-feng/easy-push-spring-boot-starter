@@ -3,7 +3,9 @@ package org.feng.support;
 import lombok.extern.slf4j.Slf4j;
 import org.feng.model.MailMessageBody;
 import org.feng.properties.MailProperties;
+import org.feng.thymeleaf.ResourceTemplateResolver;
 import org.feng.utils.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,38 +20,38 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 构建Session会话
+ *
  * @author feng
  * 2022/6/23 10:33
- * 构建Session会话
  */
 @Slf4j
 public class EmailBuild {
 
     private static final Map<String, Session> MAP = new ConcurrentHashMap<>();
 
+    @Autowired
+    private ResourceTemplateResolver resolver;
+
+
     /**
-     * init build
+     * 初始化邮件session
      *
      * @param emailProperties mail properties
-     * @throws MessagingException MessagingException
-     * @throws IOException        IOException
      */
-    public static void build(MailProperties emailProperties) throws MessagingException, IOException {
-        if (emailProperties.getEnable()) {
-            buildSession(emailProperties);
-        }
+    public static void build(MailProperties emailProperties) {
+        buildSession(emailProperties);
     }
 
 
     /**
-     * buildMessageProperties
+     * 构建公共消息体
      *
-     * @param messageBody messageBody
+     * @param messageBody 消息体
      * @param msg         msg
      * @throws MessagingException MessagingException
-     * @throws IOException        IOException
      */
-    private static void buildMessageProperties(MimeMessage msg, MailMessageBody messageBody) throws MessagingException, IOException {
+    private static void buildMessageProperties(MimeMessage msg, MailMessageBody messageBody) throws MessagingException {
         msg.setFrom(new InternetAddress(messageBody.getFrom()));
         msg.setRecipients(Message.RecipientType.TO, getAddress(messageBody.getTo()));
         if (!Objects.isNull(messageBody.getCc())) {
@@ -63,7 +65,7 @@ public class EmailBuild {
     }
 
     /**
-     * buildMessage
+     * 构建消息
      *
      * @param messageBody messageBody
      * @param files       net files
@@ -90,7 +92,7 @@ public class EmailBuild {
     }
 
     /**
-     * buildMessage
+     * 构建消息
      *
      * @param messageBody messageBody
      * @param files       files
@@ -118,7 +120,7 @@ public class EmailBuild {
     }
 
     /**
-     * build mail session
+     * 构建邮件session
      *
      * @param emailProperties emailProperties
      */
@@ -137,7 +139,7 @@ public class EmailBuild {
     }
 
     /**
-     * buildProperties
+     * 构建邮件配置
      *
      * @param emailProperties emailProperties
      * @return mail配置
@@ -158,7 +160,7 @@ public class EmailBuild {
     }
 
     /**
-     * Get addresses separated by commas
+     * 以逗号分割获取地址
      *
      * @param address address
      * @return Get addresses separated by commas
@@ -172,4 +174,6 @@ public class EmailBuild {
         }
         return internetAddresses;
     }
+
+
 }

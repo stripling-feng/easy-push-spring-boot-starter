@@ -6,43 +6,40 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author feng
- *  2022/6/24 9:28
- *  Mail配置字段
+ * 2022/6/24 9:28
+ * Mail配置字段
  */
 @Data
 @ConfigurationProperties(prefix = "easy-push.mail")
 @Component
 public class MailProperties {
     /**
-     * enable
-     */
-    private Boolean enable;
-    /**
-     * host
+     * 邮箱地址
+     * 例:smtp.163.com
      */
     private String host;
     /**
-     * username
+     * 用户名
      */
     private String username;
     /**
-     * password
+     * 密码(授权码)
      */
     private String password;
     /**
-     * port
+     * 端口
      */
     private String port;
     /**
-     * debug
+     * 是否开启debug
      */
-    private Boolean debug;
+    private Boolean debug = false;
     /**
-     * ssl
+     * 是否开启ssl
      */
-    private Boolean ssl;
+    private Boolean ssl = true;
     /**
      * sslFactoryClass
      */
-    private String sslFactoryClass;
+    private String sslFactoryClass = "javax.net.ssl.SSLSocketFactory";
 }
