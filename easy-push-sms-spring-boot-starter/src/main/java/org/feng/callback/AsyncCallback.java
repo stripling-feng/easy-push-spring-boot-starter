@@ -11,7 +11,10 @@ public interface AsyncCallback {
     /**
      * async 回调 需要实现这个接口 进行实现
      *
-     * @param body 返回实体
+     * @param body    返回实体
+     * @param smsType 短信类型
      */
-    public void callback(Object body, SmsType smsType);
+    default void callback(Object body, SmsType smsType) {
+
+    }
 }
