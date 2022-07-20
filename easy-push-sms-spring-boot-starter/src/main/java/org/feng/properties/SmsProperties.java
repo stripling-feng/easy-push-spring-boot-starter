@@ -15,4 +15,5 @@ import org.springframework.stereotype.Component;
 public class SmsProperties {
     private SmsAliProperties ali;
     private SmsTencentProperties tencent;
+    private SmsAsyncProperties async;
 }

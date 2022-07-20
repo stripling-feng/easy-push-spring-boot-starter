@@ -14,7 +14,5 @@ public interface AsyncCallback {
      * @param body    返回实体
      * @param smsType 短信类型
      */
-    default void callback(Object body, SmsType smsType) {
-
-    }
+    void callback(Object body, SmsType smsType);
 }

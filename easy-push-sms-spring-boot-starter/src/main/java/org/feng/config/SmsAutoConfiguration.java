@@ -28,19 +28,13 @@ public class SmsAutoConfiguration {
     @Bean
     @ConditionalOnProperty(prefix = "easy-push.sms.ali", name = "access-key-id")
     public AliSmsClient aliSmsClient() {
-        log.info("初始化阿里云短信");
-        AliSmsClient aliSmsClient = new AliSmsClient(smsProperties, asyncClient);
-        log.info("初始化阿里云短信成功");
-        return aliSmsClient;
+        return new AliSmsClient(smsProperties, asyncClient);
     }
 
     @Bean
     @ConditionalOnProperty(prefix = "easy-push.sms.tencent", name = "secret-id")
     public TencentSmsClient tencentSmsClient() {
-        log.info("初始化腾讯云短信");
-        TencentSmsClient tencentSmsClient = new TencentSmsClient(smsProperties, asyncClient);
-        log.info("初始化腾讯云短信成功");
-        return tencentSmsClient;
+        return new TencentSmsClient(smsProperties, asyncClient);
     }
 
 }
