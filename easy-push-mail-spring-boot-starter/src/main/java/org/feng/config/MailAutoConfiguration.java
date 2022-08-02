@@ -2,6 +2,7 @@ package org.feng.config;
 
 import lombok.AllArgsConstructor;
 import org.feng.cilent.MailClient;
+import org.feng.enums.Rejected;
 import org.feng.properties.MailPoolProperties;
 import org.feng.properties.MailProperties;
 import org.feng.properties.MailTemplateProperties;
@@ -11,12 +12,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templatemode.TemplateMode;
 
-import javax.mail.MessagingException;
-import java.io.IOException;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * emailClient自动化配置
@@ -52,7 +51,7 @@ public class MailAutoConfiguration {
      * @return MailClient
      */
     @Bean
-    public MailClient emailClient(){
+    public MailClient emailClient() {
         return new MailClient(mailProperties);
     }
 
@@ -69,7 +68,15 @@ public class MailAutoConfiguration {
         executor.setQueueCapacity(mailPoolProperties.getQueueCapacity());
         executor.setKeepAliveSeconds(mailPoolProperties.getKeepAlive());
         executor.setThreadNamePrefix(mailPoolProperties.getThreadNamePrefix());
-        executor.setRejectedExecutionHandler(mailPoolProperties.getRejectedExecutionHandler());
+        if (mailPoolProperties.getRejectedExecutionHandler() == Rejected.CallerRunsPolicy) {
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        } else if (mailPoolProperties.getRejectedExecutionHandler() == Rejected.AbortPolicy) {
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+        } else if (mailPoolProperties.getRejectedExecutionHandler() == Rejected.DiscardOldestPolicy) {
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy());
+        } else {
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
+        }
         executor.initialize();
         return executor;
     }

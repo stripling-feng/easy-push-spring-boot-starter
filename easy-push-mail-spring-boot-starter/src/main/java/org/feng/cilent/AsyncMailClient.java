@@ -32,7 +32,7 @@ public class AsyncMailClient {
      * @throws IOException        文件转换异常
      */
     @Async("mailAsyncExecutor")
-    protected void asyncSendEmail(MailMessageBody messageBody) throws MessagingException, IOException {
+    public void asyncSendEmail(MailMessageBody messageBody) throws MessagingException, IOException {
         this.asyncSendEmail(messageBody, (MultipartFile[]) null);
     }
 
@@ -45,7 +45,7 @@ public class AsyncMailClient {
      * @throws IOException        文件转换异常
      */
     @Async("mailAsyncExecutor")
-    protected void asyncSendEmail(MailMessageBody messageBody, MultipartFile[] files) throws MessagingException, IOException {
+    public void asyncSendEmail(MailMessageBody messageBody, MultipartFile[] files) throws MessagingException, IOException {
         Transport.send(EmailBuild.buildMessage(messageBody, files));
     }
 
@@ -58,7 +58,7 @@ public class AsyncMailClient {
      * @throws IOException        文件转换异常
      */
     @Async("mailAsyncExecutor")
-    protected void asyncSendEmail(MailMessageBody messageBody, File[] files) throws MessagingException, IOException {
+    public void asyncSendEmail(MailMessageBody messageBody, File[] files) throws MessagingException, IOException {
         Transport.send(EmailBuild.buildMessage(messageBody, files));
     }
 
@@ -74,7 +74,7 @@ public class AsyncMailClient {
      * @throws IOException        文件转换异常
      */
     @Async("mailAsyncExecutor")
-    protected void asyncSendEmailHtmlTemplate(MailMessageBody messageBody, String templateName, HashMap<String, Object> dataMap, MultipartFile[] files) throws MessagingException, IOException {
+    public void asyncSendEmailHtmlTemplate(MailMessageBody messageBody, String templateName, HashMap<String, Object> dataMap, MultipartFile[] files) throws MessagingException, IOException {
         String content = thymeleafBuild.buildHtmlTemplate(templateName, dataMap);
         messageBody.setContent(content);
         Transport.send(EmailBuild.buildMessage(messageBody, files));
@@ -91,7 +91,7 @@ public class AsyncMailClient {
      * @throws IOException        文件转换异常
      */
     @Async("mailAsyncExecutor")
-    protected void asyncSendEmailHtmlTemplate(MailMessageBody messageBody, String templateName, HashMap<String, Object> dataMap, File[] files) throws MessagingException, IOException {
+    public void asyncSendEmailHtmlTemplate(MailMessageBody messageBody, String templateName, HashMap<String, Object> dataMap, File[] files) throws MessagingException, IOException {
         String content = thymeleafBuild.buildHtmlTemplate(templateName, dataMap);
         messageBody.setContent(content);
         Transport.send(EmailBuild.buildMessage(messageBody, files));
@@ -107,7 +107,7 @@ public class AsyncMailClient {
      * @throws IOException        文件转换异常
      */
     @Async("mailAsyncExecutor")
-    protected void asyncSendEmailHtmlTemplate(MailMessageBody messageBody, String templateName, HashMap<String, Object> dataMap) throws MessagingException, IOException {
+    public void asyncSendEmailHtmlTemplate(MailMessageBody messageBody, String templateName, HashMap<String, Object> dataMap) throws MessagingException, IOException {
         this.asyncSendEmailHtmlTemplate(messageBody, templateName, dataMap, (MultipartFile[]) null);
     }
 

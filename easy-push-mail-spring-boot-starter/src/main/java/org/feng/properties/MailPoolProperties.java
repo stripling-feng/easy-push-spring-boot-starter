@@ -1,11 +1,9 @@
 package org.feng.properties;
 
 import lombok.Data;
+import org.feng.enums.Rejected;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @author feng
@@ -19,5 +17,5 @@ public class MailPoolProperties {
     private Integer queueCapacity = 20;
     private Integer keepAlive = 60;
     private String threadNamePrefix = "mailAsyncExecutor-";
-    private RejectedExecutionHandler rejectedExecutionHandler = new ThreadPoolExecutor.CallerRunsPolicy();
+    private Rejected rejectedExecutionHandler = Rejected.CallerRunsPolicy;
 }

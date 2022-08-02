@@ -16,18 +16,6 @@
 
 ## 快速入门
 
-**使用聚合包**
-
-```xml
-<dependency>
-    <groupId>io.github.stripling-feng</groupId>
-    <artifactId>easy-push-spring-boot-starter</artifactId>
-    <version>1.0.1</version>
-</dependency>
-```
-
-**或者**：
-
 ```xml
 <dependency>
     <groupId>io.github.stripling-feng</groupId>
@@ -67,8 +55,6 @@ easy-push:
       max-pool: 100
       queue-capacity: 20
       keep-alive: 60
-      #拒绝策略
-      rejected-execution-handler: new ThreadPoolExecutor.CallerRunsPolicy()
       #线程名称
       thread-name-prefix: mypool
     template:

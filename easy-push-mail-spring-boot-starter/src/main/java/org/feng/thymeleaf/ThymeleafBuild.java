@@ -14,9 +14,6 @@ import java.util.HashMap;
  */
 @Component
 public class ThymeleafBuild {
-
-    @Autowired
-    private TemplateEngine templateEngine;
     @Autowired
     private ResourceTemplateResolver resolver;
     private static final String TEMPLATE_PREFIX_TAG = "/";
