@@ -44,7 +44,6 @@ public class AliSmsBuild {
             log.info("ali_client构建失败");
         }
         MAP.put("ali_client", aliClient);
-        log.info("--------------------初始化ALIClient成功----------------------------");
         return aliClient;
     }
 }

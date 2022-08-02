@@ -3,6 +3,7 @@ package org.feng.config;
 import org.feng.utils.ThreadMdcUtil;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.Callable;
@@ -11,6 +12,7 @@ import java.util.concurrent.Future;
 /**
  * @author feng
  */
+@Configuration
 public class ThreadPoolMdcConfiguration extends ThreadPoolTaskExecutor {
     @Autowired
     private ThreadMdcUtil threadMdcUtil;

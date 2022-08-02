@@ -44,7 +44,6 @@ public class TencentSmsBuild {
         }
         SmsClient smsClient = buildTencentConfig(smsProperties.getTencent());
         MAP.put("tencent_client", smsClient);
-        log.info("--------------------初始化tencent_client成功----------------------------");
         return smsClient;
     }
 }

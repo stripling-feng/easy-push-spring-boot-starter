@@ -12,17 +12,7 @@
 - **支持异步发送短信，并返回异步发送结果**
 ## 快速入门
 
-**使用聚合包**
 
-```xml
-<dependency>
-    <groupId>io.github.stripling-feng</groupId>
-    <artifactId>easy-push-spring-boot-starter</artifactId>
-    <version>1.0.1</version>
-</dependency>
-```
-
-**或者**：
 
 ```xml
 <dependency>
@@ -61,6 +51,14 @@ easy-push:
     ali:
       access-key-id: xxxx
       access-key-secret: xxxxx
+    async:
+      #lockback 多线程日志追踪id名称
+      trace-id-name: traceId
+      core-pool-size: 10
+      max-pool-size: 100
+      thread-name-prefix: threadPrefix
+      keep-alive-seconds: 60
+      queue-capacity: 20
 ```
 
 ## 服务Client

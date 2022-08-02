@@ -1,8 +1,8 @@
 package org.feng.config;
 
+import org.feng.enums.Rejected;
 import org.feng.properties.SmsAsyncProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
@@ -31,13 +31,22 @@ public class ThreadPoolAutoConfiguration {
         initExecutor(executor);
         return executor;
     }
+
     private void initExecutor(ThreadPoolTaskExecutor executor) {
-        executor.setCorePoolSize(10);
-        executor.setMaxPoolSize(100);
-        executor.setQueueCapacity(20);
-        executor.setKeepAliveSeconds(60);
-        executor.setThreadNamePrefix("smsAsyncExecutor-");
-        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        executor.setCorePoolSize(smsAsyncProperties.getCorePoolSize());
+        executor.setMaxPoolSize(smsAsyncProperties.getMaxPoolSize());
+        executor.setQueueCapacity(smsAsyncProperties.getQueueCapacity());
+        executor.setKeepAliveSeconds(smsAsyncProperties.getKeepAliveSeconds());
+        executor.setThreadNamePrefix(smsAsyncProperties.getThreadNamePrefix());
+        if (smsAsyncProperties.getRejectedExecutionHandler() == Rejected.CallerRunsPolicy) {
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        } else if (smsAsyncProperties.getRejectedExecutionHandler() == Rejected.AbortPolicy) {
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+        } else if (smsAsyncProperties.getRejectedExecutionHandler() == Rejected.DiscardOldestPolicy) {
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy());
+        } else {
+            executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
+        }
         executor.initialize();
     }
 }
