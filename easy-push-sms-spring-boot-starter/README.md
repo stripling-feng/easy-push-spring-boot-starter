@@ -18,7 +18,7 @@
 <dependency>
     <groupId>io.github.stripling-feng</groupId>
     <artifactId>easy-push-sms-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 ## 配置详情
