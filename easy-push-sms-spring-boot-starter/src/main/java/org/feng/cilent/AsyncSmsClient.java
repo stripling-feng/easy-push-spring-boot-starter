@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @AllArgsConstructor
-public class AsyncClient {
+public class AsyncSmsClient {
 
     private AsyncCallback asyncCallback;
 
@@ -35,7 +35,7 @@ public class AsyncClient {
         asyncCallback.callback(sendSmsResponse.getBody(), SmsType.ALI);
     }
 
-    public void tencentAsyncSendSms(SmsClient client, com.tencentcloudapi.sms.v20210111.models.SendSmsRequest sendSmsRequest) {
+    protected void tencentAsyncSendSms(SmsClient client, com.tencentcloudapi.sms.v20210111.models.SendSmsRequest sendSmsRequest) {
 
         com.tencentcloudapi.sms.v20210111.models.SendSmsResponse sendSmsResponse = null;
         try {

@@ -21,9 +21,31 @@
     <version>1.0.0</version>
 </dependency>
 ```
+## 配置详情
+
+```yaml
+easy-push:
+  sms:
+    #客户端配置
+    ali:
+      access-key-id: xxxx
+      access-key-secret: xxxxx
+    #异步配置
+    async:
+      trace-id-name: traceId  #lockback 多线程日志追踪id名称
+      #线程池配置
+      core-pool-size: 10  #默认10
+      max-pool-size: 100  #默认100
+      thread-name-prefix: threadPrefix #默认smsAsyncExecutor-
+      keep-alive-seconds: 60  #默认60
+      queue-capacity: 20  #默认20
+```
+
 
 ```java
-//注入
+//阿里云短信 同步发送示例
+
+@Autowired
 private AliSmsClient aliSmsClient;
 
 //使用
@@ -43,37 +65,40 @@ try {
 
 
 
-## 全部配置详情
 
-```yaml
-easy-push:
-  sms:
-    ali:
-      access-key-id: xxxx
-      access-key-secret: xxxxx
-    async:
-      #lockback 多线程日志追踪id名称
-      trace-id-name: traceId
-      core-pool-size: 10
-      max-pool-size: 100
-      thread-name-prefix: threadPrefix
-      keep-alive-seconds: 60
-      queue-capacity: 20
-```
 
 ## 服务Client
 
-| 服务     | client           | 描述               |
-| -------- | ---------------- | ------------------ |
-| 短信服务 | AliSmsClient     | 发送邮件client     |
-|          | TencentSmsClient | 异步发送邮件client |
+| 服务     | client           | 描述            |
+| -------- | ---------------- |---------------|
+| 短信服务 | AliSmsClient     | 阿里云发送邮件client |
+|          | TencentSmsClient | 腾讯云发送邮件client |
 
 ###  SMS使用异步发送
 
 实现 AsyncCallback 接口并添加至spring容器中，可以实现异步发送成功之后的回调
 
 例：
+```java
+//阿里云短信 异步发送示例
 
+@Autowired
+private AliSmsClient aliSmsClient;
+
+//使用
+AliSendSmsRequest request = new AliSendSmsRequest();
+request.setPhoneNumbers("111111,2222220");
+request.setSignName("11111");
+request.setTemplateCode("11111");
+HashMap<String, String> params = new HashMap<>();
+request.setTemplateParam(params);
+request.setOutId("123456");
+try {
+  aliSmsClient.asyncSendSms(request);
+} catch (Exception e) {
+  e.printStackTrace();
+}
+```
 ```java
 public interface AsyncCallback {
     /**

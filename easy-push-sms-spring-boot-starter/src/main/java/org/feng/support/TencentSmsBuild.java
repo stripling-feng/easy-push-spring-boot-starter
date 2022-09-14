@@ -35,7 +35,7 @@ public class TencentSmsBuild {
 
     public static SmsClient buildTencentClient(SmsProperties smsProperties) {
         if (Objects.isNull(smsProperties) && Objects.isNull(smsProperties.getTencent())) {
-            log.info("tencent_client未进行配置，无法发送");
+            log.warn("tencent_client未进行配置，无法发送");
             return null;
         }
         SmsClient tencentClient = MAP.get("tencent_client");

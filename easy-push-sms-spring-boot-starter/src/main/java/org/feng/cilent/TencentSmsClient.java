@@ -18,9 +18,9 @@ import java.util.Objects;
 public class TencentSmsClient {
     private final SmsProperties smsProperties;
 
-    private final AsyncClient asyncClient;
+    private final AsyncSmsClient asyncClient;
 
-    public TencentSmsClient(SmsProperties smsProperties, AsyncClient asyncClient) {
+    public TencentSmsClient(SmsProperties smsProperties, AsyncSmsClient asyncClient) {
         this.smsProperties = smsProperties;
         this.asyncClient = asyncClient;
     }

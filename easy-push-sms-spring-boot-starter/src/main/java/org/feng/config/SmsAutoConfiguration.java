@@ -3,7 +3,7 @@ package org.feng.config;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.feng.cilent.AliSmsClient;
-import org.feng.cilent.AsyncClient;
+import org.feng.cilent.AsyncSmsClient;
 import org.feng.cilent.TencentSmsClient;
 import org.feng.properties.SmsProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Configuration;
 public class SmsAutoConfiguration {
 
     private SmsProperties smsProperties;
-    private AsyncClient asyncClient;
+    private AsyncSmsClient asyncClient;
 
     @Bean
     @ConditionalOnProperty(prefix = "easy-push.sms.ali", name = "access-key-id")

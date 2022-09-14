@@ -21,9 +21,9 @@ import java.util.Objects;
 public class AliSmsClient {
 
     private final SmsProperties smsProperties;
-    private final AsyncClient asyncClient;
+    private final AsyncSmsClient asyncClient;
 
-    public AliSmsClient(SmsProperties smsProperties, AsyncClient asyncClient) {
+    public AliSmsClient(SmsProperties smsProperties, AsyncSmsClient asyncClient) {
         this.smsProperties = smsProperties;
         this.asyncClient = asyncClient;
     }

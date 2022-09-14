@@ -29,7 +29,7 @@ public class AliSmsBuild {
 
     public static Client buildAliClient(SmsProperties smsProperties) {
         if (Objects.isNull(smsProperties) && Objects.isNull(smsProperties.getAli())) {
-            log.info("ali_client未进行配置，无法发送");
+            log.warn("ali_client未进行配置，无法发送");
             return null;
         }
         Client aliClient = MAP.get("ali_client");
@@ -41,7 +41,7 @@ public class AliSmsBuild {
             aliClient = new Client(config);
         } catch (Exception e) {
             e.printStackTrace();
-            log.info("ali_client构建失败");
+            log.error("ali_client构建失败");
         }
         MAP.put("ali_client", aliClient);
         return aliClient;
