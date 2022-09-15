@@ -6,7 +6,9 @@
 
 基于springboot starter 集成的一个 推送工具。**easy-push-spring-boot-starter** 是聚合服务。
 
+## 注意
 
+所有版本从1.2.0 开始使用，前面的版本已废弃，不可再用
 
 ## 服务功能
 
