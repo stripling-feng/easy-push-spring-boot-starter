@@ -1,0 +1,29 @@
+server:
+  port: 14444
+easy-push:
+  mail:
+    host: smtp.163.com
+    username: 15612509687@163.com
+    password: xxxxxxx
+    port: 25
+    ssl: true
+    debug: true
+    ssl-factory-class: javax.net.ssl.SSLSocketFactory
+    pool:
+      rejected-execution-handler: callerrunspolicy
+      core-pool: 10
+      max-pool: 100
+      queue-capacity: 20
+      keep-alive: 60
+      thread-name-prefix: "mymail"
+  sms:
+    ali:
+      access-key-id: xxxxxxx
+      access-key-secret: xxxxxxx
+    async:
+      trace-id-name: traceId
+      core-pool-size: 10
+      max-pool-size: 100
+      thread-name-prefix: threadPrefix
+      keep-alive-seconds: 60
+      queue-capacity: 20
