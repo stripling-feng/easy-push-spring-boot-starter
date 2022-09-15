@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.feng.callback.AsyncCallback;
 import org.feng.enums.SmsType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +17,9 @@ import org.springframework.stereotype.Component;
  * 2022/6/27 16:11
  * ali 异步发送
  */
-@Component
 @Slf4j
-@AllArgsConstructor
 public class AsyncSmsClient {
-
+    @Autowired
     private AsyncCallback asyncCallback;
 
     @Async("smsAsyncExecutor")

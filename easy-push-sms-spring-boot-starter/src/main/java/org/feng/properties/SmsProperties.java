@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties(prefix = "easy-push.sms")
 @Data
-@Component
 public class SmsProperties {
     private SmsAliProperties ali;
     private SmsTencentProperties tencent;

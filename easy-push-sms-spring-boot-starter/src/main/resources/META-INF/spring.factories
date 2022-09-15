@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.feng.config.PropertiesAuthConfiguration ,\
 org.feng.config.SmsAutoConfiguration

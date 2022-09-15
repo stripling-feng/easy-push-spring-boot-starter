@@ -19,7 +19,6 @@ import java.util.HashMap;
  * 2022/6/23 11:28
  * Mailcilnet
  */
-@Component
 public class AsyncMailClient {
     @Autowired
     private ThymeleafBuild thymeleafBuild;

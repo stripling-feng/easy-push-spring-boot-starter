@@ -12,7 +12,6 @@ import java.util.concurrent.Callable;
 /**
  * @author feng
  */
-@Component
 public class ThreadMdcUtil {
     @Autowired
     private SmsAsyncProperties smsAsyncProperties;

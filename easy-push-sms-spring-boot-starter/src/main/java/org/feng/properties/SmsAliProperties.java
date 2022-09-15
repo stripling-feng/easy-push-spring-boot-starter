@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties(prefix = "easy-push.sms.ali")
 @Data
-@Component
 public class SmsAliProperties {
     private String accessKeyId;
     private String accessKeySecret;

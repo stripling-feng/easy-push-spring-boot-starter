@@ -6,12 +6,12 @@
 
     <groupId>io.github.stripling-feng</groupId>
     <artifactId>easy-push-sms-spring-boot-starter</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <name>easy-push-sms-spring-boot-starter</name>
     <description>sms push</description>
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <!-- 开源签名证书 -->
@@ -47,6 +47,12 @@
             <groupId>com.tencentcloudapi</groupId>
             <artifactId>tencentcloud-sdk-java</artifactId>
             <version>3.1.539</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio</artifactId>
+            <version>2.8.0</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.aliyun</groupId>

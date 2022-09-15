@@ -15,7 +15,6 @@ import java.util.concurrent.ThreadPoolExecutor;
  * 2022/6/28 10:06
  *  TODO
  */
-@Component
 public class ThreadPoolAutoConfiguration {
     @Autowired
     private SmsAsyncProperties smsAsyncProperties;

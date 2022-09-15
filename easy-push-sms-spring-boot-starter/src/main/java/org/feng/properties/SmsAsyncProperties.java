@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
  */
 @ConfigurationProperties(prefix = "easy-push.sms.async")
 @Data
-@Component
 public class SmsAsyncProperties {
     /**
      * 多线程logback 日志追踪字段

@@ -12,7 +12,6 @@ import java.util.concurrent.Future;
 /**
  * @author feng
  */
-@Configuration
 public class ThreadPoolMdcConfiguration extends ThreadPoolTaskExecutor {
     @Autowired
     private ThreadMdcUtil threadMdcUtil;
