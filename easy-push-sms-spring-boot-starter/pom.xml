@@ -6,7 +6,7 @@
 
     <groupId>io.github.stripling-feng</groupId>
     <artifactId>easy-push-sms-spring-boot-starter</artifactId>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
     <name>easy-push-sms-spring-boot-starter</name>
     <description>sms push</description>
     <properties>
@@ -27,9 +27,12 @@
         <connection>scm:git@github.com:stripling-feng/easy-push-spring-boot-starter.git</connection>
         <developerConnection>scm:git@github.com:stripling-feng/easy-push-spring-boot-starter.git
         </developerConnection>
-        <url>https://github.com/stripling-feng/easy-push-spring-boot-starter/tree/main/easy-push-mail-spring-boot-starter</url>
+        <url>
+            https://github.com/stripling-feng/easy-push-spring-boot-starter/tree/main/easy-push-mail-spring-boot-starter
+        </url>
     </scm>
-    <url>https://github.com/stripling-feng/easy-push-spring-boot-starter/tree/main/easy-push-mail-spring-boot-starter</url>
+    <url>https://github.com/stripling-feng/easy-push-spring-boot-starter/tree/main/easy-push-mail-spring-boot-starter
+    </url>
     <!-- 开发人员信息 -->
     <developers>
         <developer>
@@ -156,7 +159,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.1</version>
+                <version>1.5</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>

@@ -20,7 +20,7 @@
 <dependency>
     <groupId>io.github.stripling-feng</groupId>
     <artifactId>easy-push-mail-spring-boot-starter</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 

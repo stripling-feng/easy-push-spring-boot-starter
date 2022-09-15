@@ -29,8 +29,8 @@ public class TencentSmsClient {
      * 同步消息发送
      *
      * @param tencentSendSmsRequest 信息发送主体
-     * @return
-     * @throws Exception
+     * @return 消息返回体
+     * @throws Exception 发送失败
      */
     public EasySmsResponse<com.tencentcloudapi.sms.v20210111.models.SendSmsResponse> sendSms(TencentSendSmsRequest tencentSendSmsRequest) throws Exception {
         com.tencentcloudapi.sms.v20210111.models.SendSmsResponse smsResponse = Objects.requireNonNull(TencentSmsBuild.buildTencentClient(smsProperties)).SendSms(buildSendSmsRequest(tencentSendSmsRequest));
@@ -41,7 +41,7 @@ public class TencentSmsClient {
      * 使用异步进行消息发送
      *
      * @param tencentSendSmsRequest 信息发送主体
-     * @throws Exception
+     * @throws Exception 发送失败
      */
     public void asyncSendSms(TencentSendSmsRequest tencentSendSmsRequest) throws Exception {
         asyncClient.tencentAsyncSendSms(Objects.requireNonNull(TencentSmsBuild.buildTencentClient(smsProperties)), buildSendSmsRequest(tencentSendSmsRequest));

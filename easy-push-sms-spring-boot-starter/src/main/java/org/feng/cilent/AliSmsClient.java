@@ -32,8 +32,8 @@ public class AliSmsClient {
      * 同步消息发送
      *
      * @param aliSendSmsRequest 信息发送主体
-     * @return
-     * @throws Exception
+     * @return 消息返回体
+     * @throws Exception 发送失败
      */
     public EasySmsResponse<SendSmsResponseBody> sendSms(AliSendSmsRequest aliSendSmsRequest) throws Exception {
         SendSmsResponse sendSmsResponse = Objects.requireNonNull(AliSmsBuild.buildAliClient(smsProperties)).sendSms(buildSendSmsRequest(aliSendSmsRequest));
@@ -44,7 +44,7 @@ public class AliSmsClient {
      * 使用异步进行消息发送
      *
      * @param aliSendSmsRequest 信息发送主体
-     * @throws Exception
+     * @throws Exception 发送失败
      */
     public void asyncSendSms(AliSendSmsRequest aliSendSmsRequest) throws Exception {
         asyncClient.aliAsyncSendSms(Objects.requireNonNull(AliSmsBuild.buildAliClient(smsProperties)), buildSendSmsRequest(aliSendSmsRequest));
