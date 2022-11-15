@@ -4,13 +4,10 @@ import com.aliyun.dysmsapi20170525.Client;
 import com.aliyun.dysmsapi20170525.models.SendSmsRequest;
 import com.aliyun.dysmsapi20170525.models.SendSmsResponse;
 import com.tencentcloudapi.sms.v20210111.SmsClient;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.feng.callback.AsyncCallback;
 import org.feng.enums.SmsType;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
 
 /**
  * @author feng
@@ -19,19 +16,23 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 public class AsyncSmsClient {
-    @Autowired
-    private AsyncCallback asyncCallback;
+
+    private final AsyncCallback asyncCallback;
+
+    public AsyncSmsClient(AsyncCallback asyncCallback) {
+        this.asyncCallback = asyncCallback;
+    }
 
     @Async("smsAsyncExecutor")
     protected void aliAsyncSendSms(Client client, SendSmsRequest sendSmsRequest) {
         SendSmsResponse sendSmsResponse = null;
         try {
             sendSmsResponse = client.sendSms(sendSmsRequest);
+            asyncCallback.callback(sendSmsResponse.getBody(), SmsType.ALI);
         } catch (Exception e) {
             e.printStackTrace();
             log.info("AliClient异步发送消息失败");
         }
-        asyncCallback.callback(sendSmsResponse.getBody(), SmsType.ALI);
     }
 
     protected void tencentAsyncSendSms(SmsClient client, com.tencentcloudapi.sms.v20210111.models.SendSmsRequest sendSmsRequest) {
@@ -39,10 +40,10 @@ public class AsyncSmsClient {
         com.tencentcloudapi.sms.v20210111.models.SendSmsResponse sendSmsResponse = null;
         try {
             sendSmsResponse = client.SendSms(sendSmsRequest);
+            asyncCallback.callback(sendSmsResponse, SmsType.TENCENT);
         } catch (Exception e) {
             e.printStackTrace();
             log.info("TencentClient异步发送消息失败");
         }
-        asyncCallback.callback(sendSmsResponse, SmsType.TENCENT);
     }
 }

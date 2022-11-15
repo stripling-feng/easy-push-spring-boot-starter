@@ -1,6 +1,7 @@
 package org.feng.config;
 
 import org.feng.utils.ThreadMdcUtil;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -17,18 +18,20 @@ public class ThreadPoolMdcConfiguration extends ThreadPoolTaskExecutor {
     private ThreadMdcUtil threadMdcUtil;
 
     @Override
-    public void execute(Runnable task) {
+    public void execute(@NotNull Runnable task) {
         super.execute(threadMdcUtil.wrap(task, MDC.getCopyOfContextMap()));
     }
 
+    @NotNull
     @Override
-    public Future<?> submit(Runnable task) {
+    public Future<?> submit(@NotNull Runnable task) {
         return super
                 .submit(threadMdcUtil.wrap(task, MDC.getCopyOfContextMap()));
     }
 
+    @NotNull
     @Override
-    public <T> Future<T> submit(Callable<T> task) {
+    public <T> Future<T> submit(@NotNull Callable<T> task) {
         return super
                 .submit(threadMdcUtil.wrap(task, MDC.getCopyOfContextMap()));
     }

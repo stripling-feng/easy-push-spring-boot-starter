@@ -44,7 +44,7 @@ public class SmsAutoConfiguration {
 
     @Bean
     public AsyncSmsClient asyncSmsClient() {
-        return new AsyncSmsClient();
+        return new AsyncSmsClient(asyncCallback());
     }
 
     @Bean

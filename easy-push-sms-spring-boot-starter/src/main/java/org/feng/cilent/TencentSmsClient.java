@@ -16,6 +16,7 @@ import java.util.Objects;
  */
 @Slf4j
 public class TencentSmsClient {
+
     private final SmsProperties smsProperties;
 
     private final AsyncSmsClient asyncClient;
